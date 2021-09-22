@@ -29,18 +29,18 @@ public class CustomerService {
     }
 
     @Cacheable(key = "#id",value = "Customer")               //key-value pair  can write conditions also for a method
-    public Customer getCustomerById(int id) {
+    public Customer getCustomerById(long id) {
         Customer customer=customerRepo.findById(id);
         return customer;
     }
 
     @CacheEvict(key = "#id",value = "Customer")                                       // delete as well from the cache memory as long from database
-    public void deleteCustomer(int id) {
+    public void deleteCustomer(long id) {
       customerRepo.deleteById(id);
     }
 
     @CachePut(key = "#id",value = "Customer")
-    public Customer update(int id, Customer customer)
+    public Customer update(long id, Customer customer)
     {
         Customer customer1=customerRepo.findById(id);
       customer1.setName(customer.getName());

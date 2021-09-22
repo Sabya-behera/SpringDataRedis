@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-/*---------------------Redis Configuration connect to the server----------------*/
+/*---------------------Redis Configuration connect to the server(Database)----------------*/
 @Configuration
 //@EnableRedisRepositories
 public class RedisConfig

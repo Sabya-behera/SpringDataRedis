@@ -24,16 +24,17 @@ public class CustomerRepoImpl {
     /*------------Add Customer-----------*/
     public Customer  saveCustomer(Customer customer)
     {
-        hashOperations.put("Key",customer.getId(),customer);
+        hashOperations.put(key,customer.getId(),customer);
         return  customer;
     }
 
     /*------------Get all Customer-----------*/
     public Map<Long,Customer> findAll(){
+        System.out.println("All from database");
         return  hashOperations.entries(key);
     }
     /*------------Get by  IdCustomer-----------*/
-    public Customer findById(int id)
+    public Customer findById(long id)
     {
         System.out.println("Called findById from db");
         return (Customer) hashOperations.get(key,id);
@@ -48,8 +49,8 @@ public class CustomerRepoImpl {
 
     public String updateCustomer( Customer customer)
     {
-        hashOperations.put("key1",customer.getName(),customer);
-        hashOperations.put("key2",customer.getExternalId(),customer);
+        hashOperations.put(key,customer.getName(),customer);
+        hashOperations.put(key,customer.getExternalId(),customer);
         return "Updated";
     }
 
