@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class CustomerController {
@@ -20,10 +21,10 @@ public class CustomerController {
     }
 
     @GetMapping("/get")
-    public List<Customer> getAllCustomer()
+    public Map<Long,Customer> getAllCustomer()
     {
         System.out.println("Values Displayed");
-        return (List<Customer>) customerService.getAllCustomer();
+        return customerService.getAllCustomer();
     }
 
     @GetMapping("/get/{id}")

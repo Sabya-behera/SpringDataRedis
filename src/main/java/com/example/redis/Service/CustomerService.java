@@ -9,9 +9,9 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Map;
 
-
+/*------------------------------------REDIS As a Cache-----------------------------------*/
 @Service
 @EnableCaching                                        //To implement Caching mechanism
 public class CustomerService {
@@ -24,7 +24,7 @@ public class CustomerService {
 
     }
 
-    public List<Customer> getAllCustomer() {
+    public Map<Long,Customer> getAllCustomer() {
         return  customerRepo.findAll();
     }
 

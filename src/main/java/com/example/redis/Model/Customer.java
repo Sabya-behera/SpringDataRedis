@@ -1,14 +1,14 @@
 package com.example.redis.Model;
 
 
-import lombok.Data;
+//import lombok.Data;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
 
 
-@Data
-@RedisHash("Customer")
+//@Data
+//@RedisHash("Customer")
 public class Customer implements Serializable {
 
     private Long id;
@@ -48,12 +48,12 @@ public class Customer implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerRepo{" +
-                "id=" + id +
-                ", externalId='" + externalId + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "CustomerRepo{" +
+//                "id=" + id +
+//                ", externalId='" + externalId + '\'' +
+//                ", name='" + name + '\'' +
+//                '}';
+//    }
 }
