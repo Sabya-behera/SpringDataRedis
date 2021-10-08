@@ -13,9 +13,9 @@ public class CustomerRepoImpl {
     private static final String key = "Customer";       //to Store data one of the hash
 
     private HashOperations hashOperations;
-    private RedisTemplate<String,Customer> redisTemplate;
+    private RedisTemplate<Integer,Customer> redisTemplate;
 
-    public CustomerRepoImpl(RedisTemplate<String,Customer> redisTemplate)
+    public CustomerRepoImpl(RedisTemplate<Integer,Customer> redisTemplate)
     {
         this.redisTemplate=redisTemplate;
          hashOperations = redisTemplate.opsForHash();
@@ -47,10 +47,10 @@ public class CustomerRepoImpl {
         return  "Deleted";
     }
 
-    public String updateCustomer( Customer customer)
+    public String updateCustomer( long id,Customer customer)
     {
-        hashOperations.put(key,customer.getName(),customer);
-        hashOperations.put(key,customer.getExternalId(),customer);
+        hashOperations.put(key,id,customer);
+      //  hashOperations.put(key,customer.getExternalId(),customer);
         return "Updated";
     }
 

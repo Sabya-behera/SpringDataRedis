@@ -1,15 +1,12 @@
 package com.example.redis.Model;
 
 
-//import lombok.Data;
-import org.springframework.data.redis.core.RedisHash;
-
 import java.io.Serializable;
 
 
 //@Data
 //@RedisHash("Customer")
-public class Customer implements Serializable {
+public class Customer implements Serializable {                //used to serialize and deserialize objects to json and vice-versa
 
     private Long id;
     private String externalId;

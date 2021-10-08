@@ -5,7 +5,6 @@ import com.example.redis.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,21 +27,21 @@ public class CustomerController {
     }
 
     @GetMapping("/get/{id}")
-    public Customer getCustomerById(@PathVariable(value = "id")int id)
+    public Customer getCustomerById(@PathVariable(value = "id")long id)
     {
         return customerService.getCustomerById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteCustomer(@PathVariable(value = "id")int id)
+    public void deleteCustomer(@PathVariable(value = "id")long id)
     {
           customerService.deleteCustomer(id);
     }
 
     @PutMapping("/put/{id}")
-    public Customer update(@RequestBody Customer customer,@PathVariable(value = "id") int id)
+    public Customer updateCustomer(@PathVariable(value = "id") long id,@RequestBody Customer customer)
     {
-        customerService.update(id,customer);
-        return customer;
+        return customerService.updateCustomer(id,customer);
+
     }
 }

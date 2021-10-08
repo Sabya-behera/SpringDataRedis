@@ -34,18 +34,18 @@ public class CustomerService {
         return customer;
     }
 
-    @CacheEvict(key = "#id",value = "Customer")                                       // delete as well from the cache memory as long from database
+    @CacheEvict(key = "#id",value = "Customer")              // delete as well from the cache memory as long from database
     public void deleteCustomer(long id) {
       customerRepo.deleteById(id);
     }
 
     @CachePut(key = "#id",value = "Customer")
-    public Customer update(long id, Customer customer)
+    public Customer updateCustomer(long id, Customer customer)
     {
         Customer customer1=customerRepo.findById(id);
       customer1.setName(customer.getName());
       customer1.setExternalId(customer.getExternalId());
-      customerRepo.updateCustomer(customer1);
+      customerRepo.updateCustomer(id,customer1);
       return customer1;
     }
 }

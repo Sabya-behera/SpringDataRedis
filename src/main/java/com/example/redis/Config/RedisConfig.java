@@ -26,9 +26,9 @@ public class RedisConfig
     /*Redis Template --->Used to Interact with Redis server using Jedis Connection to store data*/
 
     @Bean
-    public RedisTemplate<String,Customer> redisTemplate()
+    public RedisTemplate<Integer,Customer> redisTemplate()
      {
-         RedisTemplate<String,Customer> redisTemplate=new RedisTemplate<>();
+         RedisTemplate<Integer,Customer> redisTemplate=new RedisTemplate<>();
          redisTemplate.setConnectionFactory(jedisConnectionFactory());
                      //         redisTemplate.setKeySerializer(new StringRedisSerializer());
                     //         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
